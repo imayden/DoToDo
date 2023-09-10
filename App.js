@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Dimensions } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Dimensions, Vibration } from 'react-native';
 import Thing from './components/Thing';
 import ToastManager from './components/ToastManager';
 import { BlurView } from '@react-native-community/blur';
 import Toast from 'react-native-toast-message';
+import * as Haptics from 'expo-haptics';
 
 const { width, height } = Dimensions.get('window');
 const screenWidth = Dimensions.get('window').width;
@@ -27,10 +28,18 @@ export default function App() {
     setCurrentDate(formattedDate);
   }, []);
 
+  // Haptic Feedback: Input clicked
+  const handleInputFocus = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  };
+
   const handleAddThing = () => {
     Keyboard.dismiss();
-    if (thing && thing.trim().length > 0){
 
+    // Haptic Feedback: Thing Added
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+
+    if (thing && thing.trim().length > 0){
       const date = new Date();
       const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
       const newItem = {
@@ -40,13 +49,16 @@ export default function App() {
       setThingItems([newItem, ...thingItems]);
       setThing(null);
     } else {
+
+      // Vibration Warning: Null Thing to add
+      Vibration.vibrate();
       Toast.show({
         type: 'error',
         text1: 'Oops...Write something to do!',
         topOffset: 80,
       });
     }
-}
+  }
 
    
   const finishThing = (index) => {
@@ -55,6 +67,9 @@ export default function App() {
     itemsCopy.splice(index, 1);
     // Save the changde to the array
     setThingItems(itemsCopy);
+
+    // Haptic Feedback: Thing Finished
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   }
 
   return (
@@ -109,15 +124,17 @@ export default function App() {
             style={styles.input} 
             placeholder={'Write a thing to do today ...'} 
             value={thing} 
-            onChangeText={text => setThing(text)}/>
-
+            onChangeText={text => setThing(text)}
+            // Haptic Feedback: Input clicked
+            onFocus={handleInputFocus}
+          />
+            
           <TouchableOpacity onPress={() => handleAddThing()}>
-
             <View style={styles.addWrapper}>
               <Text style={styles.addText}>+</Text>
             </View>
           </TouchableOpacity>
-
+          
         </KeyboardAvoidingView>
         <View style={styles.navigationBar} />
         
