@@ -19,9 +19,19 @@ export default function App() {
 
   const handleAddThing = () => {
     Keyboard.dismiss();
-    setThingItems([...thingItems, thing]);
+    
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+    const newItem = {
+      text: thing,
+      timestamp: formattedDate
+    }
+
+    setThingItems([newItem, ...thingItems]);
     setThing(null);
-  }
+}
+
    
   const finishThing = (index) => {
     let itemsCopy = [...thingItems];
@@ -57,13 +67,13 @@ export default function App() {
                     ) : (
                       thingItems.map((item, index) => {
                         return (
-                          <Thing 
-                            key={index} 
-                            text={item}
-                            onDelete={() => finishThing(index)} // 这里传递删除功能
-                          />
+                            <Thing 
+                                key={index} 
+                                text={item}
+                                onDelete={() => finishThing(index)}
+                            />
                         );
-                      })
+                    })
                     )
                   }
               </View>

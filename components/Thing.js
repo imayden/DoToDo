@@ -4,14 +4,17 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 const Thing = (props) => {
 
     return (
-
         <View style={styles.item}>
-
             <View style={styles.itemL}>
                 {/* Icon of the thing component */}
                 <View style={styles.icon}></View>
-                {/* Text content of the thing task */}
-                <Text style={styles.itemText}>{props.text}</Text>
+                {/* Text content and timestamp container */}
+                <View>
+                    {/* Text content of the thing task */}
+                    <Text style={styles.itemText}>{props.text.text}</Text>
+                    {/* Timestamp */}
+                    <Text style={styles.timestamp}>{props.text.timestamp}</Text>
+                </View>
             </View>
             
             {/* Circular check-box */}
@@ -21,9 +24,9 @@ const Thing = (props) => {
                 </View>
             </TouchableOpacity>
         </View>
-
     )
 }
+
 
 const styles = StyleSheet.create({
     item: {
@@ -51,6 +54,13 @@ const styles = StyleSheet.create({
     itemText: {
         maxWidth: '80%',
     },
+
+    timestamp: {
+        fontSize: 12,
+        color: 'gray',
+        marginTop: 5, // Or any other value you prefer
+    },
+
     circular: {
         width: 24,
         height: 24,
