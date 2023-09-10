@@ -2,7 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 import Thing from './components/Thing';
+import ToastManager from './components/ToastManager';
 import { BlurView } from '@react-native-community/blur';
+import Toast from 'react-native-toast-message';
+
 
 export default function App() {
 
@@ -19,17 +22,24 @@ export default function App() {
 
   const handleAddThing = () => {
     Keyboard.dismiss();
-    
-    const date = new Date();
-    const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    if (thing && thing.trim().length > 0){
 
-    const newItem = {
-      text: thing,
-      timestamp: formattedDate
+      const date = new Date();
+      const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const newItem = {
+        text: thing,
+        timestamp: formattedDate
+      }
+      setThingItems([newItem, ...thingItems]);
+      setThing(null);
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Oops...Write something to do!',
+        topOffset: 80,
+      });
     }
 
-    setThingItems([newItem, ...thingItems]);
-    setThing(null);
 }
 
    
@@ -44,6 +54,7 @@ export default function App() {
   return (
     <View style={styles.container}>
 
+      
 
         {/* ThingsTodo */}
         <View style={styles.thingsWrapper}>
@@ -78,7 +89,6 @@ export default function App() {
                   }
               </View>
 
-
           </ScrollView>
         </View>
       
@@ -106,7 +116,8 @@ export default function App() {
 
         </KeyboardAvoidingView>
         <View style={styles.navigationBar} />
-
+        
+        <ToastManager />
     </View>
   );
 }
@@ -190,13 +201,8 @@ const styles = StyleSheet.create({
   addText: {
     color: '#FFFFFF',
     fontSize: 40, 
-    // backgroundColor: '#3EB489',
     bottom: '5%',
     left: '1%',
   },
-
-  
-
-
 });
 
