@@ -4,21 +4,24 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 const Thing = (props) => {
 
     return (
+
         <View style={styles.item}>
 
             <View style={styles.itemL}>
                 {/* Icon of the thing component */}
-                {/* <TouchableOpacity style={styles.square}></TouchableOpacity> */}
-                <View style={styles.square}></View>
+                <View style={styles.icon}></View>
                 {/* Text content of the thing task */}
                 <Text style={styles.itemText}>{props.text}</Text>
             </View>
             
             {/* Circular check-box */}
-            <View style={styles.circular}>
-
-            </View>
+            <TouchableOpacity onPress={props.onDelete}>
+                <View style={styles.circular}>
+                    <Text style={styles.checkbox}>✓</Text>
+                </View>
+            </TouchableOpacity>
         </View>
+
     )
 }
 
@@ -26,7 +29,7 @@ const styles = StyleSheet.create({
     item: {
         backgroundColor: '#fff',
         padding: 18,
-        borderRadius: 50,
+        borderRadius: 32,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexWrap: 'wrap',
     },
-    square: {
+    icon: {
         width: 24,
         height: 24,
         backgroundColor: '#3EB489',
@@ -49,13 +52,20 @@ const styles = StyleSheet.create({
         maxWidth: '80%',
     },
     circular: {
-        width: 16,
-        height: 16,
+        width: 24,
+        height: 24,
         borderColor: '#3EB489',
         borderRadius: 50,
         borderWidth: 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    checkbox: {
+        color: '#3EB489',
+        fontWeight: 'bold',
     },
 
 });
 
 export default Thing;
+

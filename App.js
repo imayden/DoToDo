@@ -49,24 +49,23 @@ export default function App() {
             >
               {/* There will be the detials of the things to do */}
               <View style={styles.items}>
-                {
-                  thingItems.length === 0 ? (
-                    <View style={styles.emptyMessageWrapper}>
-                      <Text style={styles.emptyMessageText}>Yay! You Finished Everything Today!</Text>
-                    </View>
-                  ) : (
-                    thingItems.map((item, index) => {
-                      return (
-                        <TouchableOpacity 
-                          key={index} 
-                          onPress={() => finishThing(index)}
-                        >
-                          <Thing text={item}/>
-                        </TouchableOpacity>
-                      );
-                    })
-                  )
-                }
+                  {
+                    thingItems.length === 0 ? (
+                      <View style={styles.emptyMessageWrapper}>
+                          <Text style={styles.emptyMessageText}>Yay! You Finished Everything Today!</Text>
+                      </View>
+                    ) : (
+                      thingItems.map((item, index) => {
+                        return (
+                          <Thing 
+                            key={index} 
+                            text={item}
+                            onDelete={() => finishThing(index)} // 这里传递删除功能
+                          />
+                        );
+                      })
+                    )
+                  }
               </View>
 
 
