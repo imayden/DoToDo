@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Toast from 'react-native-toast-message';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 const ToastManager = () => (
@@ -8,7 +9,12 @@ const ToastManager = () => (
     config={{
       error: (internalState) => (
         <View style={styles.toastWrapper}>
-          <View style={styles.toastContent} />
+                <LinearGradient
+                    colors={['#06D8AD', '#0ABBB5']}
+                    style={styles.toastContent}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
+                />
           <Text>{internalState.text1}</Text>
         </View>
       ),
@@ -32,7 +38,6 @@ const styles = StyleSheet.create({
   toastContent: {
     width: 20,
     height: 20,
-    backgroundColor: '#3EB489',
     borderRadius: 10,
     marginRight: 10,
   },

@@ -3,9 +3,10 @@ import React, {useState, useEffect} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Dimensions, Vibration } from 'react-native';
 import Thing from './components/Thing';
 import ToastManager from './components/ToastManager';
-import { BlurView } from '@react-native-community/blur';
+import { LinearGradient } from 'expo-linear-gradient';
 import Toast from 'react-native-toast-message';
 import * as Haptics from 'expo-haptics';
+
 
 const { width, height } = Dimensions.get('window');
 const screenWidth = Dimensions.get('window').width;
@@ -26,6 +27,7 @@ export default function App() {
     const date = new Date();
     const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     setCurrentDate(formattedDate);
+
   }, []);
 
   // Haptic Feedback: Input clicked
@@ -74,6 +76,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      
 
         {/* ThingsTodo */}
         <View style={styles.thingsWrapper}>
@@ -123,17 +126,27 @@ export default function App() {
           <TextInput 
             style={styles.input} 
             placeholder={'Write a thing to do today ...'} 
+            selectionColor="#0ABBB5"
             value={thing} 
             onChangeText={text => setThing(text)}
             // Haptic Feedback: Input clicked
             onFocus={handleInputFocus}
           />
             
-          <TouchableOpacity onPress={() => handleAddThing()}>
+          {/* <TouchableOpacity onPress={() => handleAddThing()}>
             <View style={styles.addWrapper}>
               <Text style={styles.addText}>+</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+            <TouchableOpacity onPress={() => handleAddThing()}>
+              <LinearGradient
+                colors={['#06D8AD', '#0ABBB5']}
+                style={styles.addWrapper}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 1 }}>
+                <Text style={styles.addText}>+</Text>
+              </LinearGradient>
+            </TouchableOpacity>
           
         </KeyboardAvoidingView>
         <View style={styles.navigationBar} />
@@ -146,7 +159,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E1E1E1',
+    backgroundColor: '#EFEFEF',
   },
   thingsWrapper: {
     paddingTop: '15%', 
@@ -184,13 +197,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#E1E1E1',
+    backgroundColor: '#EFEFEF',
   },
   navigationBar: {
     position: 'absolute',
     width: '100%',
     height: '2.5%', 
-    backgroundColor: '#E1E1E1',
+    backgroundColor: '#EFEFEF',
     bottom: 0,
   },
   input: {
@@ -205,7 +218,7 @@ const styles = StyleSheet.create({
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: '#3EB489',
+    backgroundColor: '#0ABBB5',
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
