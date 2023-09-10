@@ -40,9 +40,8 @@ export default function App() {
               }}
               keyboardShouldPersistTaps='handled'
             >
-
-              <View style={styles.items}>
-                {/* There will be the detials of the things to do */}
+              {/* There will be the detials of the things to do */}
+              {/* <View style={styles.items}>
                 {
                   thingItems.map((item, index) => {
                     return (
@@ -54,7 +53,30 @@ export default function App() {
                       )
                   })
                 }
+              </View> */}
+
+              <View style={styles.items}>
+                {
+                  thingItems.length === 0 ? (
+                    <View style={styles.emptyMessageWrapper}>
+                      <Text style={styles.emptyMessageText}>Yay! You Finished Everything Today!</Text>
+                    </View>
+                  ) : (
+                    thingItems.map((item, index) => {
+                      return (
+                        <TouchableOpacity 
+                          key={index} 
+                          onPress={() => finishThing(index)}
+                        >
+                          <Thing text={item}/>
+                        </TouchableOpacity>
+                      );
+                    })
+                  )
+                }
               </View>
+
+
           </ScrollView>
         </View>
       
@@ -95,7 +117,8 @@ const styles = StyleSheet.create({
   thingsWrapper: {
     paddingTop: 80,
     paddingHorizontal: 20,
-    
+    justifyContent: 'center',
+    flex: 1,
   },
   sectionTitle: {
     fontSize: 28,
@@ -104,6 +127,17 @@ const styles = StyleSheet.create({
   },
   items: {
     marginTop: 30,
+  },
+
+  emptyMessageWrapper: {
+    flex: 1,
+    marginTop: '60%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyMessageText: {
+    fontSize: 18,
+    color: 'rgba(0, 0, 0, 0.5)',
   },
 
   writeThingWrapper: {
