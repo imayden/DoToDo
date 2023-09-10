@@ -1,11 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Dimensions } from 'react-native';
 import Thing from './components/Thing';
 import ToastManager from './components/ToastManager';
 import { BlurView } from '@react-native-community/blur';
 import Toast from 'react-native-toast-message';
 
+const { width, height } = Dimensions.get('window');
+const screenWidth = Dimensions.get('window').width;
+function RFValue(fontSize) {
+  const standardScreenHeight = 680;
+  const heightPercent = (fontSize * screenWidth) / standardScreenHeight;
+  return Math.round(heightPercent);
+}
 
 export default function App() {
 
@@ -39,7 +46,6 @@ export default function App() {
         topOffset: 80,
       });
     }
-
 }
 
    
@@ -53,8 +59,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-
-      
 
         {/* ThingsTodo */}
         <View style={styles.thingsWrapper}>
@@ -73,7 +77,7 @@ export default function App() {
                   {
                     thingItems.length === 0 ? (
                       <View style={styles.emptyMessageWrapper}>
-                          <Text style={styles.emptyMessageText}>Yay! You Finished Everything Today!</Text>
+                          <Text style={styles.emptyMessageText}>Good Job! You Finished Everything Today!</Text>
                       </View>
                     ) : (
                       thingItems.map((item, index) => {
@@ -128,64 +132,58 @@ const styles = StyleSheet.create({
     backgroundColor: '#E1E1E1',
   },
   thingsWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
+    paddingTop: '15%', 
+    paddingHorizontal: '5%', 
     justifyContent: 'center',
     flex: 1,
   },
   sectionTitle: {
-    fontSize: 28,
+    fontSize: RFValue(48), 
     fontWeight: 'bold',
-    marginVertical: 10,
+    marginVertical: '2.5%', 
   },
-
   dateText: {
-    fontSize: 16,
-    color: '#888',
-    marginBottom: 20,
+    fontSize: RFValue(22), 
+    color: 'rgba(0, 0, 0, 0.4)',
+    marginBottom: '5%', 
   },
-
   items: {
-    marginTop: 30,
+    marginTop: '5%',
   },
-
   emptyMessageWrapper: {
     flex: 1,
-    marginTop: '60%',
+    marginTop: '75%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   emptyMessageText: {
-    fontSize: 18,
+    fontSize: RFValue(28), 
     color: 'rgba(0, 0, 0, 0.5)',
   },
-
   writeThingWrapper: {
     position: 'absolute',
-    bottom: 60,
+    bottom: '2.5%', 
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#E1E1E1',
-    
   },
   navigationBar: {
     position: 'absolute',
     width: '100%',
-    height: 60,
+    height: '2.5%', 
     backgroundColor: '#E1E1E1',
     bottom: 0,
   },
-
   input: {
-    paddingVertical: 15,
-    paddingHorizontal: 15,
+    paddingVertical: height * 0.02, 
+    paddingHorizontal: width * 0.04, 
     backgroundColor: '#FFF',
     borderRadius: 60,
     borderColor: '#C1C1C1',
     borderWidth: 1,
-    width: 280,
+    width: '70%', 
   },
   addWrapper: {
     width: 60,
@@ -196,7 +194,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#C0C0C0',
     borderWidth: 1,
-    marginVertical: 18,
+    marginVertical: '20%', 
   },
   addText: {
     color: '#FFFFFF',
@@ -205,4 +203,3 @@ const styles = StyleSheet.create({
     left: '1%',
   },
 });
-

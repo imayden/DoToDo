@@ -5,7 +5,6 @@ import Toast from 'react-native-toast-message';
 
 const ToastManager = () => (
   <Toast 
-    ref={(ref) => Toast.setRef(ref)} 
     config={{
       error: (internalState) => (
         <View style={styles.toastWrapper}>

@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     timestamp: {
         fontSize: 12,
         color: 'gray',
-        marginTop: 5, // Or any other value you prefer
+        marginTop: 5, 
     },
 
     circular: {
