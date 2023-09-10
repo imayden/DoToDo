@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 import Thing from './components/Thing';
 import { BlurView } from '@react-native-community/blur';
@@ -9,6 +9,13 @@ export default function App() {
   // Set up the thing-task state hook
   const [thing, setThing] = useState();
   const [thingItems, setThingItems] = useState([]);
+  const [currentDate, setCurrentDate] = useState(null);
+
+  useEffect(() => {
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    setCurrentDate(formattedDate);
+  }, []);
 
   const handleAddThing = () => {
     Keyboard.dismiss();
@@ -32,8 +39,8 @@ export default function App() {
         <View style={styles.thingsWrapper}>
           <Text style={styles.sectionTitle}>
             Things Today
-            </Text>
-
+          </Text>
+          {currentDate && <Text style={styles.dateText}>{currentDate}</Text>}
             <ScrollView
               contentContainerStyle={{
               flexGrow: 1
@@ -41,20 +48,6 @@ export default function App() {
               keyboardShouldPersistTaps='handled'
             >
               {/* There will be the detials of the things to do */}
-              {/* <View style={styles.items}>
-                {
-                  thingItems.map((item, index) => {
-                    return (
-                      <TouchableOpacity 
-                      key={index} 
-                      onPress={() => finishThing(index)}>
-                        <Thing text={item}/>
-                      </TouchableOpacity>
-                      )
-                  })
-                }
-              </View> */}
-
               <View style={styles.items}>
                 {
                   thingItems.length === 0 ? (
@@ -98,7 +91,7 @@ export default function App() {
           <TouchableOpacity onPress={() => handleAddThing()}>
 
             <View style={styles.addWrapper}>
-              <Text style={styles.addText}> + </Text>
+              <Text style={styles.addText}>+</Text>
             </View>
           </TouchableOpacity>
 
@@ -123,8 +116,15 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 28,
     fontWeight: 'bold',
-    marginVertical: 20,
+    marginVertical: 10,
   },
+
+  dateText: {
+    fontSize: 16,
+    color: '#888',
+    marginBottom: 20,
+  },
+
   items: {
     marginTop: 30,
   },
@@ -180,6 +180,14 @@ const styles = StyleSheet.create({
   },
   addText: {
     color: '#FFFFFF',
+    fontSize: 40, 
+    // backgroundColor: '#3EB489',
+    bottom: '5%',
+    left: '1%',
   },
+
+  
+
+
 });
 
