@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Dimensions, Vibration } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Dimensions, Vibration, Animated } from 'react-native';
 import Thing from './components/Thing';
 import ToastManager from './components/ToastManager';
 import { LinearGradient } from 'expo-linear-gradient';
