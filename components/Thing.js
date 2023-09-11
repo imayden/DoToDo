@@ -1,4 +1,14 @@
-import react from "react";
+/**
+ * Project Name: ThingsToday
+ * Developer: Ayden Deng
+ * Email: ayden.yiming.deng@gmail.com
+ * Website: https://imayden.com
+ * GitHub Repository: https://github.com/imayden/ThingsToday.git
+ *
+ * Copyright (c) 2023 Ayden Deng. All Rights Reserved.
+ */
+
+import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 

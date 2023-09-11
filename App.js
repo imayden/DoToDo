@@ -1,3 +1,13 @@
+/**
+ * Project Name: ThingsToday
+ * Developer: Ayden Deng
+ * Email: ayden.yiming.deng@gmail.com
+ * Website: https://imayden.com
+ * GitHub Repository: https://github.com/imayden/ThingsToday.git
+ *
+ * Copyright (c) 2023 Ayden Deng. All Rights Reserved.
+ */
+
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Dimensions, Vibration, Animated } from 'react-native';
@@ -133,11 +143,6 @@ export default function App() {
             onFocus={handleInputFocus}
           />
             
-          {/* <TouchableOpacity onPress={() => handleAddThing()}>
-            <View style={styles.addWrapper}>
-              <Text style={styles.addText}>+</Text>
-            </View>
-          </TouchableOpacity> */}
             <TouchableOpacity onPress={() => handleAddThing()}>
               <LinearGradient
                 colors={['#06D8AD', '#0ABBB5']}
