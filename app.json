@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ThingsToday",
+    "name": "DoToDo",
     "slug": "ThingsToday",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/SplashScreen.png",
       "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#EFEFEF"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,11 +20,17 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#EFEFEF"
+      },
+      "package": "com.imayden.DoToDo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f1f06715-2fb9-41da-a448-51d84c7949b0"
+      }
     }
   }
 }

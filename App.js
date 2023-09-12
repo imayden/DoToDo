@@ -91,7 +91,7 @@ export default function App() {
         {/* ThingsTodo */}
         <View style={styles.thingsWrapper}>
           <Text style={styles.sectionTitle}>
-            Things Today
+            To Do Today
           </Text>
           {currentDate && <Text style={styles.dateText}>{currentDate}</Text>}
             <ScrollView
@@ -135,7 +135,7 @@ export default function App() {
 
           <TextInput 
             style={styles.input} 
-            placeholder={'Write a thing to do today ...'} 
+            placeholder={'Write something to do today ...'} 
             selectionColor="#0ABBB5"
             value={thing} 
             onChangeText={text => setThing(text)}
