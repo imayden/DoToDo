@@ -1,11 +1,9 @@
 # Do.ToDo
 
-![Developer: Ayden Deng](https://img.shields.io/badge/Developer-Ayden%20Deng-green)
-[![Developer: Ayden Deng](https://img.shields.io/badge/Developer-Ayden%20Deng-green)](https://imayden.com) 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/imayden/DoToDo.git) 
-[![Download the App](https://img.shields.io/badge/Download-App-brightgreen)](https://yb4tsxyxizt.larksuite.com/docx/AZ4ddHH6hoy5xDxcRcEuiygMsWe)
-
 ## Overview
+- [![Developer: Ayden Deng](https://img.shields.io/badge/Developer-Ayden%20Deng-green)](https://imayden.com) 
+- [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/imayden/DoToDo.git) 
+- [![Download the App](https://img.shields.io/badge/Download-App-brightgreen)](https://yb4tsxyxizt.larksuite.com/docx/AZ4ddHH6hoy5xDxcRcEuiygMsWe)
 
 Developed by seasoned programmer Ayden Deng, **Do.ToDo** serves as a beacon of fine craftsmanship in the realm of task management applications. Leveraging the dynamic capabilities of JavaScript and the Expo framework, this application epitomizes seamless integration of user-friendly aesthetics with stellar functional prowess, setting a benchmark in app development standards.
 
