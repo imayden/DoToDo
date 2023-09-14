@@ -3,7 +3,7 @@
 ## Overview
 - [![Developer: Ayden Deng](https://img.shields.io/badge/Developer-Ayden%20Deng-green)](https://imayden.com) 
 - [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/imayden/DoToDo.git) 
-- [![Download the Do.ToDo](https://img.shields.io/badge/Download-App-brightgreen)](https://yb4tsxyxizt.larksuite.com/docx/AZ4ddHH6hoy5xDxcRcEuiygMsWe)
+- [![Download the App](https://img.shields.io/badge/Download-App-brightgreen)](https://yb4tsxyxizt.larksuite.com/docx/AZ4ddHH6hoy5xDxcRcEuiygMsWe)
 
 An Expo-built native app, Do.ToDo streamlines your task management with intuitive UI enhancements and features, leveraging JavaScript for a modern, interactive, and engaging user experience. Download and try now.
 
