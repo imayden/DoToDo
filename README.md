@@ -1,6 +1,6 @@
 # Do.ToDo
 
-![Developer: Ayden Deng](https://img.shields.io/badge/Developer-Ayden%20Deng-green) 
+![Developer: Ayden Deng](https://img.shields.io/badge/Developer-Ayden%20Deng-green) (https://imayden.com) 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/imayden/DoToDo.git) 
 [![Download the App](https://img.shields.io/badge/Download-App-brightgreen)](https://yb4tsxyxizt.larksuite.com/docx/AZ4ddHH6hoy5xDxcRcEuiygMsWe)
 
